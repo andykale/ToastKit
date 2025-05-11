@@ -75,6 +75,63 @@ All toasts use Apple SF Symbols and automatically apply a light haptic.
 
 ---
 
+## ℹ️ Advanced Usage (ViewModel integration)
+If you're calling `toastManager.show(...)` from a view model or external object:
+
+- Inject your `ToastManager` into the view model via its initializer:
+
+```swift
+let toastManager = ToastManager()
+let viewModel = WeatherViewModel(toastManager: toastManager)
+```
+
+- Ensure your view includes `.environmentObject(toastManager)` for `ToastOverlay` to respond.
+
+- ToastManager already uses `withAnimation` internally, so transitions will work correctly. If manually assigning `message`, wrap it in:
+
+```swift
+withAnimation {
+    toastManager.message = "Something happened"
+}
+```
+
+---
+
+## 🎥 Demo Preview
+
+Here's a quick example to see ToastKit in action:
+
+```swift
+struct ToastDemoView: View {
+    @StateObject var toastManager = ToastManager()
+
+    var body: some View {
+        ZStack {
+            VStack(spacing: 20) {
+                Button("Show Success") {
+                    toastManager.show("Upload complete!", type: .success)
+                }
+                Button("Show Warning") {
+                    toastManager.show("Low battery warning!", type: .warning)
+                }
+                Button("Show Error") {
+                    toastManager.show("Failed to save data.", type: .error)
+                }
+                Button("Show Info") {
+                    toastManager.show("You're viewing a demo.", type: .info)
+                }
+            }
+        }
+        .environmentObject(toastManager)
+        .overlay(ToastOverlay())
+    }
+}
+```
+
+This view allows you to test all toast styles interactively.
+
+---
+
 ## 📱 Platform Support
 - ✅ iOS 14+
 - ❌ Not designed for macOS or watchOS yet
@@ -92,4 +149,4 @@ Feel free to open a PR to improve visuals, add styling, or extend support!
 ---
 
 ## 🔗 Related
-Check out [AnimatedVisibility](https://github.com/your-username/AnimatedVisibility) for clean SwiftUI transition helpers.
+Check out [AnimatedVisibility](https://github.com/andykale/AnimatedVisibility) for clean SwiftUI transition helpers.
