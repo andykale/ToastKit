@@ -5,6 +5,8 @@
 ![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgray)
 
+<img src="https://raw.githubusercontent.com/your-username/ToastKit/main/Assets/toastkit-banner.png" width="100%" alt="ToastKit banner" />
+
 A lightweight SwiftUI toast notification system with configurable types, animations, and optional haptics. Easily show unobtrusive alerts like success, error, or info messages.
 
 ## ✨ Features
@@ -134,6 +136,9 @@ struct ToastDemoView: View {
 ```
 
 This view allows you to test all toast styles interactively.
+
+### 📲 Try the Demo App
+A fully working iOS demo project is included in the `ToastKitDemo/` folder. Open `ToastKitDemo.xcodeproj` and run on simulator or device.
 
 ---
 
