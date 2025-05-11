@@ -149,4 +149,4 @@ Feel free to open a PR to improve visuals, add styling, or extend support!
 ---
 
 ## 🔗 Related
-Check out [AnimatedVisibility](https://github.com/andykale/AnimatedVisibility) for clean SwiftUI transition helpers.
+Check out [AnimatedVisibility](https://github.com/andykale/animated-visibility-swiftui) for clean SwiftUI transition helpers.
