@@ -1,5 +1,10 @@
 # ToastKit
 
+![Swift](https://img.shields.io/badge/Swift-5.7-orange)
+![iOS](https://img.shields.io/badge/iOS-14%2B-blue)
+![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-lightgray)
+
 A lightweight SwiftUI toast notification system with configurable types, animations, and optional haptics. Easily show unobtrusive alerts like success, error, or info messages.
 
 ## ✨ Features
