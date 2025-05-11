@@ -87,7 +87,7 @@ If you're calling `toastManager.show(...)` from a view model or external object:
 
 ```swift
 let toastManager = ToastManager()
-let viewModel = WeatherViewModel(toastManager: toastManager)
+let viewModel = YourViewModelName(toastManager: toastManager)
 ```
 
 - Ensure your view includes `.environmentObject(toastManager)` for `ToastOverlay` to respond.
