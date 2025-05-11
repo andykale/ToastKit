@@ -23,7 +23,7 @@ A lightweight SwiftUI toast notification system with configurable types, animati
 2. Go to `File > Add Packages...`
 3. Enter the URL to this repository:
    ```
-   https://github.com/your-username/ToastKit.git
+   https://github.com/andykale/ToastKit.git
    ```
 4. Choose the latest version and click **Add Package**.
 
