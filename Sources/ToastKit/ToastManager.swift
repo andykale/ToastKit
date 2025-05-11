@@ -5,26 +5,35 @@
 //  Created by Andy Kale on 2025-05-10.
 //
 
+#if canImport(UIKit)
 import SwiftUI
 import Combine
 
+@MainActor
 public final class ToastManager: ObservableObject {
     @Published public var message: String?
     @Published public var type: ToastType = .info
 
     public init() {}
 
+    
     public func show(_ text: String, type: ToastType = .info, duration: TimeInterval = 2.5, haptic: Bool = true) {
-        message = text
-        self.type = type
+        withAnimation {
+            self.message = text
+            self.type = type
+        }
 
         if haptic {
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(notificationType(for: type))
+            Task { @MainActor in
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(notificationType(for: type))
+            }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-            self.message = nil
+            withAnimation {
+                self.message = nil
+            }
         }
     }
 
@@ -37,3 +46,4 @@ public final class ToastManager: ObservableObject {
         }
     }
 }
+#endif

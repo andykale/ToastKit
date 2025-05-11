@@ -5,6 +5,7 @@
 //  Created by Andy Kale on 2025-05-10.
 //
 
+#if canImport(UIKit)
 import SwiftUI
 
 public enum ToastType {
@@ -31,3 +32,4 @@ public enum ToastType {
         }
     }
 }
+#endif
