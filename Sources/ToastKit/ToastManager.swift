@@ -13,6 +13,9 @@ import Combine
 public final class ToastManager: ObservableObject {
     @Published public var message: String?
     @Published public var type: ToastType = .info
+    
+    // Keep a reference so we can cancel a pending hide
+    private var dismissWorkItem: DispatchWorkItem?
 
     public init() {}
 
