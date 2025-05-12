@@ -37,14 +37,30 @@ public final class ToastManager: ObservableObject {
         }
     }
     
+    /// Shows a toast that never auto‑hides—
+    /// until you explicitly call `hide()` or show another toast.
     public func showPersistent(
         _ text: String,
         type: ToastType = .info,
         haptic: Bool = true
     ) {
-        // Just forward to `show(..., duration: nil)`
-        show(text, type: type, duration: nil, haptic: haptic)
+        // cancel any pending auto‑hide
+        dismissWorkItem?.cancel()
+
+        withAnimation {
+            self.message = text
+            self.type = type
+        }
+
+        if haptic {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(notificationType(for: type))
+        }
+        // NOTE: no DispatchWorkItem, so it stays up.
     }
+//        // Just forward to `show(..., duration: nil)`
+//        show(text, type: type, duration: nil, haptic: haptic)
+//    }
 
     private func notificationType(for type: ToastType) -> UINotificationFeedbackGenerator.FeedbackType {
         switch type {
