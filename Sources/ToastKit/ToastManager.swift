@@ -36,6 +36,15 @@ public final class ToastManager: ObservableObject {
             }
         }
     }
+    
+    public func showPersistent(
+        _ text: String,
+        type: ToastType = .info,
+        haptic: Bool = true
+    ) {
+        // Just forward to `show(..., duration: nil)`
+        show(text, type: type, duration: nil, haptic: haptic)
+    }
 
     private func notificationType(for type: ToastType) -> UINotificationFeedbackGenerator.FeedbackType {
         switch type {
