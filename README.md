@@ -5,8 +5,6 @@
 ![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgray)
 
-![toastkitlogo](https://github.com/user-attachments/assets/d84385fc-3717-44af-9a56-eff502463fd0)
-
 A lightweight SwiftUI toast notification system with configurable types, animations, and optional haptics. Easily show unobtrusive alerts like success, error, or info messages.
 
 ## ✨ Features
@@ -16,7 +14,7 @@ A lightweight SwiftUI toast notification system with configurable types, animati
 - Smooth transition animations
 - Easy integration with `.environmentObject`
 
----
+![toastkitlogo](https://github.com/user-attachments/assets/d84385fc-3717-44af-9a56-eff502463fd0)
 
 ## 📦 Installation
 
