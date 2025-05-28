@@ -34,9 +34,8 @@ public enum ToastType {
 }
 
 public enum ToastTheme: Equatable {
-    case standard   // current/default HStack layout
-    case solidBG // your new VStack layout (call it whatever you want)
-    // Add more custom layouts in future if you wish
+    case standard
+    case solidBG
 }
 
 #endif
