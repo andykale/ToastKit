@@ -13,6 +13,7 @@ import Combine
 public final class ToastManager: ObservableObject {
     @Published public var message: String?
     @Published public var type: ToastType = .info
+    @Published public var theme: ToastTheme = .standard
     
     // Keep a reference so we can cancel a pending hide
     private var dismissWorkItem: DispatchWorkItem?
@@ -20,10 +21,11 @@ public final class ToastManager: ObservableObject {
     public init() {}
 
     
-    public func show(_ text: String, type: ToastType = .info, duration: TimeInterval = 2.5, haptic: Bool = true) {
+    public func show(_ text: String, type: ToastType = .info, duration: TimeInterval = 2.5, haptic: Bool = true, theme: ToastTheme = .standard) {
         withAnimation {
             self.message = text
             self.type = type
+            self.theme = theme
         }
 
         if haptic {
@@ -45,7 +47,8 @@ public final class ToastManager: ObservableObject {
     public func showPersistent(
         _ text: String,
         type: ToastType = .info,
-        haptic: Bool = true
+        haptic: Bool = true,
+        theme: ToastTheme = .standard
     ) {
         // cancel any pending auto‑hide
         dismissWorkItem?.cancel()
@@ -53,6 +56,7 @@ public final class ToastManager: ObservableObject {
         withAnimation {
             self.message = text
             self.type = type
+            self.theme = theme
         }
 
         if haptic {
