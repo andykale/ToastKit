@@ -14,7 +14,7 @@ A lightweight SwiftUI toast notification system with configurable types, animati
 - Smooth transition animations
 - Easy integration with `.environmentObject`
 
----
+![toastkitlogo](https://github.com/user-attachments/assets/d84385fc-3717-44af-9a56-eff502463fd0)
 
 ## 📦 Installation
 
